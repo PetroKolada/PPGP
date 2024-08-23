@@ -33,7 +33,7 @@ const INCLUDED_STATES = [24,20,5,3,4]
 
 const REQUIRED_MESSAGES = [
     {
-        state : DEFAULT_GAME_STATES.WATCHING,
+        state : DEFAULT_GAME_STATES.FINISHING,
         necessity : [24],
         output : "CURRENT_GAME_STATE"
     },
