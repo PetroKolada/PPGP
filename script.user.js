@@ -9,12 +9,8 @@ WebSocket.prototype.send = function(...args) {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".side")?.remove()
+    document.querySelector(".side")?document.querySelector(".side").remove():console.log(DEFAULT_MOD_PREFIX + "Реклама уже отсутсвует.");
 })
-
-
-// Глобальные переменные (На всю страницу)
-window.SOCKETS = []
 
 
 // Дефолтные рабочие значения
@@ -38,25 +34,30 @@ const INCLUDED_STATES = [24,20,5,3,4]
 const REQUIRED_MESSAGES = [
     {
         state : DEFAULT_GAME_STATES.WATCHING,
-        necessity : [24]
+        necessity : [24],
+        output : "CURRENT_GAME_STATE"
     },
     {
         state : DEFAULT_GAME_STATES.LOBBY,
-        necessity : [20, 5]
+        necessity : [20, 5],
+        output : "CURRENT_GAME_STATE"
     }
 ]
 const REQUIRED_MESSAGES_ALTERED = [
     {
         state : DEFAULT_GAME_STATES.DRAWING,
-        necessity : [5]
+        necessity : [5],
+        output : "CURRENT_GAME_STATE"
     },
     {
         state : DEFAULT_GAME_STATES.WRITING,
-        necessity : [3]
+        necessity : [3],
+        output : "CURRENT_GAME_STATE"
     },
     {
         state : DEFAULT_GAME_STATES.WATCHING,
-        necessity : [4]
+        necessity : [4],
+        output : "CURRENT_GAME_STATE"
     }
 ]
 
@@ -66,8 +67,10 @@ const PING_IGNORE = "3"
 // Внутренние переменные (На файл скрипта)
 let CLASS_INSTANCES = {}
 let CURRENT_TURN = -1
-let CURRENT_GAME_STATE = DEFAULT_GAME_STATES.MAIN_MENU
 
+// Глобальные переменные (На всю страницу)
+window.SOCKETS = []
+window.CURRENT_GAME_STATE = DEFAULT_GAME_STATES.MAIN_MENU
 
 // Функции
 function getKeyByValue(object, value) {
@@ -79,7 +82,10 @@ function getKeyByValue(object, value) {
 function checkState(message, gameStates) {
     for (const item of gameStates) {
         if (item.necessity.includes(message)) {
-            return item.state
+            return {
+                state : item.state,
+                output : item.output
+            }
         }
     }
     return null
@@ -94,16 +100,19 @@ function getTurn(message) {
 function messageUpdate(webSocket) {
     webSocket.addEventListener("message", (event)=>{
         let message
+        let finish
         if (event.data != PING_IGNORE) {
             try {
                 message = JSON.parse(event.data.slice(2).toString())
                     if (message[1] != 11 && INCLUDED_STATES.includes(message[1])) {
-                        CURRENT_GAME_STATE = checkState(message[1], REQUIRED_MESSAGES)
+                        finish = checkState(message[1], REQUIRED_MESSAGES)
+                        window[finish.output] = finish.state
                         console.log(DEFAULT_MOD_PREFIX + "Игре задан новый state - " + getKeyByValue(DEFAULT_GAME_STATES, CURRENT_GAME_STATE));
                         CURRENT_TURN = getTurn(message)
                         
                     }else if(INCLUDED_STATES.includes(message[2].screen)){
-                        CURRENT_GAME_STATE = checkState(message[2].screen, REQUIRED_MESSAGES_ALTERED)
+                        finish = checkState(message[1], REQUIRED_MESSAGES_ALTERED)
+                        window[finish.output] = finish.state
                         console.log(DEFAULT_MOD_PREFIX + "Игре задан новый state - " + getKeyByValue(DEFAULT_GAME_STATES, CURRENT_GAME_STATE));
                         CURRENT_TURN = getTurn(message)
                     }
