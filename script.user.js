@@ -102,7 +102,7 @@ function messageUpdate(webSocket) {
         let message
         let finish
         if (event.data != PING_IGNORE) {
-            //try {
+            try {
                 message = JSON.parse(event.data.slice(2).toString())
                     if (message[1] != 11 && INCLUDED_STATES.includes(message[1])) {
                         finish = checkState(message[1], REQUIRED_MESSAGES)
@@ -116,9 +116,9 @@ function messageUpdate(webSocket) {
                         console.log(DEFAULT_MOD_PREFIX + "Игре задан новый state - " + getKeyByValue(DEFAULT_GAME_STATES, CURRENT_GAME_STATE));
                         CURRENT_TURN = getTurn(message)
                     }
-            //} catch {
-            //    console.warn(DEFAULT_MOD_PREFIX + "Переменная message содержит не предусмотренное значение.");
-            //}
+            } catch {
+                console.warn(DEFAULT_MOD_PREFIX + "Переменная message содержит не предусмотренное значение.");
+            }
         }
     })
 }
