@@ -12,10 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".side")?document.querySelector(".side").remove():console.log(DEFAULT_MOD_PREFIX + "Реклама уже отсутсвует.");
 })
 
-
 // Дефолтные рабочие значения
-const INCLUDED_GAMEMODES = [1,3,5,8,9,10,11,13,14,15,17,18,20,21,24]
-
 const DEFAULT_ABOUT = {
     name : "PPGP",
     version : "0.1A",
@@ -47,8 +44,8 @@ const DEFAULT_GAMEMODES = {
     MISSINGPIECE : 13,
     CORPSE : 14
 }
-
 const INCLUDED_STATES = [24,20,5,3,4]
+const INCLUDED_GAMEMODES = [1,3,5,8,9,10,11,13,14,15,17,18,20,21,24]
 
 const REQUIRED_MESSAGES = [
     {
@@ -241,3 +238,4 @@ function messageUpdate(webSocket) {
         }
     })
 }
+
