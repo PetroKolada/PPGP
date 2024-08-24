@@ -12,24 +12,6 @@ body{
     height: 100%;
 }
 
-:root{
-    --dark_background_1: #191919;
-    --dark_background_2: #262626;
-    --dark_background_3: #323232;
-    --dark_background_4: #484848;
-    --light_background_1: #bfbfbf;
-    --light_background_2: #dbdbdb;
-    --light_background_3: #f0f0f0;
-    --light_background_4: #fcfcfc;
-
-    --dark_font_1: #000000;
-    --dark_font_2: #666666;
-    --dark_font_3: #a8a8a8;
-    --light_font_1: #ffffff;
-    --light_font_2: #878787;
-    --light_font_3: #737373;
-}
-
 .main{
     height: 100%;
     display: flex;
@@ -40,10 +22,12 @@ body{
 
 .main > .PPGP_Element{
     width: 100%;
-    padding: 4px;
+}
+
+.PPGP_Element{
+    gap: 1px;
     background-color: #323232;
-    box-shadow: inset 0px 0px 0px 1px rgba(#222222);
-    /*border-bottom: 1px solid #212121;*/
+    box-shadow: inset 0px 0px 0px 1px #222222;
 }
 
 .PPGP_Element.navigation{
@@ -51,13 +35,38 @@ body{
 }
 
 .PPGP_Element.settings{
-    min-height: 50px;
+    min-height: 40px;
 }
 
-.PPGP_Element.drawing__container{
+.PPGP_Element.hero{
     height: 100%;
 }
 
 .PPGP_Element.footer{
     min-height: 20px;
+}
+
+.PPGP_Element.tools{
+    height: 100%;
+    padding: 5px;
+    width: fit-content;
+}
+
+.hero{
+    display: flex;
+}
+
+.hero .PPGP_Element{
+    height: 100%;
+}
+
+.hero{
+    .PPGP_Element.drawing_area{
+        width: 100%;
+        background-color: #1f1f1f;
+    }
+
+    .PPGP_Element.right_panel{
+        min-width: 200px;
+    }
 }
