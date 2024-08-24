@@ -1,0 +1,27 @@
+.tools__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding-block: .5rem;
+}
+
+.tools_item.btn_tool::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: var(--_clr_font_1);
+}
+
+.tools_item.btn_tool[for="brush"]::after {
+    mask-image: url(/icons/brush.svg);
+}
+.tools_item.btn_tool[for="eraser"]::after {
+    mask-image: url(/icons/eraser.svg);
+}
+.tools_item.btn_tool[for="fill"]::after {
+    mask-image: url(/icons/fill.svg);
+}
+.tools_item.btn_tool[for="picker"]::after {
+    mask-image: url(/icons/picker.svg);
+}

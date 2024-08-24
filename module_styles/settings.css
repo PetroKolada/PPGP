@@ -1,0 +1,46 @@
+.settings__container {
+    --margin_item: .6rem;
+    --name_tool: 'Название';
+    --icon_tool: url(/icons/brush.svg);
+}
+
+/* ICON */
+.settings__container::before {
+    content: '';
+    margin-right: var(--margin_item);
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--_clr_font_1);
+    mask-image: var(--icon_tool);
+}
+
+/* NAME TOOL */
+.settings__container::after {
+    content: var(--name_tool);
+    font-size: var(--_font_size_1);
+    font-weight: var(--_font_weight_2);
+}
+
+.settings_item {
+    order: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* | */
+.settings_item::before {
+    content: '';
+    margin-inline: var(--margin_item);
+    background: var(--_clr_font_3);
+    height: 1.3rem;
+    width: 1px;
+    opacity: .2;
+}
+
+/* NAME PARAMETER */
+.settings_item .parameter_item.name {
+    margin-right: .3rem;
+    color: var(--_clr_font_3);
+    font-size: var(--_font_size_1);
+}

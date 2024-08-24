@@ -1,0 +1,54 @@
+button,
+.btn_tool {
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: .5;
+}
+
+button:hover,
+.btn_tool:hover {
+    opacity: .8;
+}
+
+button:active,
+.btn_tool:active {
+    opacity: 1;
+}
+
+input[type="radio"]:checked + label {
+    opacity: 1;
+    cursor: auto;
+}
+
+button.disabled,
+input[type="radio"]:disabled + label {
+    opacity: .3 !important;
+    pointer-events: none;
+}
+
+.btn_tool,
+.btn_small,
+.btn_large {
+    border-radius: 2px;
+    background: var(--_clr_main_4);
+
+    font-size: var(--_font_size_1);
+    font-weight: var(--_font_weight_2);
+}
+
+.btn_tool {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .2rem;
+}
+
+.btn_small {
+    width: 1rem;
+    height: 1rem;
+}
+
+.btn_large {
+    padding: .1rem .3rem;
+}

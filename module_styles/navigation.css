@@ -1,0 +1,41 @@
+.navigation_item.icon {
+    margin-right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--_clr_font_1);
+    mask-image: url(/icons/palette.svg);
+}
+
+.navigation_item.btn_focus {
+    padding: 0 .3rem .2rem;
+}
+
+.navigation_item.btn_focus:focus {
+    background: var(--_clr_main_2);
+    box-shadow: inset 0px 0px 0px 1px var(--_shadow_2);
+    border-radius: 2px;
+    opacity: 1;
+}
+
+.navigation_item.timer {
+    --timer_pie_chart: 60%;
+    --timer_value: "1:30";
+    /* --timer_end: red; */
+
+    margin-left: auto;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    box-shadow: inset 0px 0px 0px 2px var(--_clr_font_1);
+    border-radius: 50%;
+    background: conic-gradient(var(--timer_end, var(--_clr_font_2)) var(--timer_pie_chart), transparent var(--timer_pie_chart), transparent calc(100% - var(--timer_pie_chart)));
+}
+
+.navigation_item.timer::after {
+    content: var(--timer_value);
+    position: absolute;
+    padding-right: .5rem;
+    top: 50%;
+    left: 0%;
+    transform: translate(-100%, -50%);
+}

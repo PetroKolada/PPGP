@@ -1,23 +1,49 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DrawingModule</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="wrapper">
         <div class="main">
-            <div class="PPGP_Element navigation" id="navigationBlock"></div>
-            <div class="PPGP_Element settings" id="settingsBlock"></div>
-            <div class="PPGP_Element hero">
-                <div class="PPGP_Element tools" id="toolsBlock"></div>
-                <div class="PPGP_Element drawing_area"></div>
-                <div class="PPGP_Element right_panel" id="panelsBlock"></div>
+            <div class="PPGP_Element navigation__container">
+                <div class="PPGP_Element navigation_item icon"></div>
+                <button class="PPGP_Element navigation_item btn_focus" id="1">one</button>
+                <button class="PPGP_Element navigation_item btn_focus" id="2">two</button>
+                <button class="PPGP_Element navigation_item btn_focus" id="3">three</button>
+                <div class="PPGP_Element navigation_item timer"></div>
             </div>
-            <div class="PPGP_Element footer"></div>
+
+            <div class="PPGP_Element settings__container">
+                <div class="PPGP_Element settings_item">
+                    <span class="PPGP_Element parameter_item name">button:</span>
+                    <button class="PPGP_Element parameter_item btn_large" id="1">button</button>
+                </div>
+
+            </div>
+
+            <div class="PPGP_Element drawing__container">
+                <div class="PPGP_Element tools__container">
+                    <input checked class="PPGP_Element tools_item visually_hidden" type="radio" name="tool" id="brush">
+                    <label class="PPGP_Element tools_item btn_tool" for="brush"></label>
+                    <input class="PPGP_Element tools_item visually_hidden" type="radio" name="tool" id="eraser">
+                    <label class="PPGP_Element tools_item btn_tool" for="eraser"></label>
+                    <input class="PPGP_Element tools_item visually_hidden" type="radio" name="tool" id="fill">
+                    <label class="PPGP_Element tools_item btn_tool" for="fill"></label>
+                    <input class="PPGP_Element tools_item visually_hidden" type="radio" name="tool" id="picker">
+                    <label class="PPGP_Element tools_item btn_tool" for="picker"></label>
+                </div>
+
+                <div class="PPGP_Element panel__container"></div>
+            </div>
+            <div class="PPGP_Element footer__container"></div>
         </div>
     </div>
 </body>
+
 </html>
