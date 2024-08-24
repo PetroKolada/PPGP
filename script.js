@@ -43,8 +43,7 @@ class DrawingModule {
                 drawingWidth);
             return;
         }
-        for (let i = 0; i < POINTS_ARRAY.length; i++) {
-            if (POINTS_ARRAY[i + 1] === undefined) return;
+        for (let i = 0; i < POINTS_ARRAY.length - 1; i++) {
             this.drawLine(
                 POINTS_ARRAY[i][0], POINTS_ARRAY[i][1],
                 POINTS_ARRAY[i + 1][0], POINTS_ARRAY[i + 1][1],
