@@ -6,13 +6,13 @@ const CANVAS_SETTINGS = {
 }
 const POINTS_ARRAY = [
     [10, 10],
-    [30, 50],
-    [50, 10],
-    [70, 50],
-    [90, 10],
-    [110, 50],
-    [130, 10],
-    [150, 50],
+    [20, 20],
+    [30, 15],
+    [40, 40],
+    [70, 30],
+    [90, 50],
+    [110, 30],
+    [150, 40],
     [170, 10],
     //x   y
 ];
@@ -146,4 +146,4 @@ class DrawingModule {
 let drawingModule = new DrawingModule(CANVAS_SETTINGS.width, CANVAS_SETTINGS.height, CANVAS_CONTAINER, CANVAS_LIST_ID);
 
 //РИСОВАНИЕ
-drawingModule.draw(POINTS_ARRAY, 1, 1)//точки, размер кисти, уровень сглаживания
+drawingModule.draw(POINTS_ARRAY, 1, 1s)//точки, размер кисти, уровень сглаживания
