@@ -146,4 +146,4 @@ class DrawingModule {
 let drawingModule = new DrawingModule(CANVAS_SETTINGS.width, CANVAS_SETTINGS.height, CANVAS_CONTAINER, CANVAS_LIST_ID);
 
 //РИСОВАНИЕ
-drawingModule.draw(POINTS_ARRAY, 1, 1s)//точки, размер кисти, уровень сглаживания
+drawingModule.draw(POINTS_ARRAY, 1, 1)//точки, размер кисти, уровень сглаживания
